@@ -41,6 +41,13 @@ if($_POST["password"] !== $_POST["repeatpassword"]){
 
 
 
+// hashing the password
+// password_hash function 
+// apply default password hash function 
+// return the hash function as a string 
+// return 60 character string of seemingly random characters
+// no extract the password
+$password_hash = password_hash($_POST["password"] , PASSWORD_DEFAULT);
 
 
 
