@@ -77,8 +77,30 @@ if(! $stmt -> prepare($sql)){
 $stmt -> bind_param("sss" , 
 $_POST["name"] , $_POST["email"] , $password_hash);
 
-$stmt->execute();
-echo "succ message" ; 
+
+// validation upon dublicates email
+// here we use try and catch because without them the program will crush and will grt error 
+
+
+try {
+    // ($stmt->execute()) => returns true if the email not in database
+    // false if the email is in there 
+    if ($stmt->execute()) {
+        echo "Success message";
+    } else {
+        throw new Exception("Error executing the statement");
+    }
+    // here take the error and see its code if 1062 => that means 
+    // the email address is duplicated
+} catch (mysqli_sql_exception $e) {
+    if ($e->getCode() === 1062) {
+        echo "Email address already taken. Please choose another one.";
+    } else {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+
 
 
 
