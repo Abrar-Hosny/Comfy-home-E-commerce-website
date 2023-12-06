@@ -5,7 +5,19 @@
 
 if(empty($_POST["name"])){
 die("name is required");
+
+
 }
+
+
+$email = $_POST['email']; // Make sure this is correct
+// Other form data retrieval
+
+// Check if email is not null before proceeding
+if ($_POST["email"] == null) {
+    echo "Email cannot be null";}  
+   
+
 
 // validate the email 
 // THIS return false if the email is not valid address
@@ -50,9 +62,24 @@ if($_POST["password"] !== $_POST["repeatpassword"]){
 $password_hash = password_hash($_POST["password"] , PASSWORD_DEFAULT);
 
 
+$mysqli=require __DIR__  . "/database.php";
 
 
 
-// print_r($_POST);
+$sql = "INSERT INTO user (name, email ,password_hash) VALUES(?, ? ,?)";
+
+$stmt = $mysqli ->stmt_init();
+
+if(! $stmt -> prepare($sql)){
+    die("SQL error : " . $mysqli->error); 
+}
+
+$stmt -> bind_param("sss" , 
+$_POST["name"] , $_POST["email"] , $password_hash);
+
+$stmt->execute();
+echo "succ message" ; 
+
+
 
 ?>
