@@ -86,7 +86,10 @@ try {
     // ($stmt->execute()) => returns true if the email not in database
     // false if the email is in there 
     if ($stmt->execute()) {
-        echo "Success message";
+        // here we go to another page redirect the location  and 
+        // exit from the form page 
+header("Location: signup-success.html")      ;
+exit ;   
     } else {
         throw new Exception("Error executing the statement");
     }
