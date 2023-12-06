@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Poppins:wght@400;600;700&display=swap');
+
+/*  root pseudo-class. The :root selector represents the highest-level parent element,
+--x => variable 
+*/
+:root{
+    /* variales */
+  --primary-color:#2f2f2f;
+  --text-dark : #18181b; 
+  --text-light :#71717a ; 
+  --white:#ffffff;
+  --max-width:1200px; 
+  --header-font :"Lora" , serif ; 
+
+}
+
+*{
+    padding: 0;
+    margin: 0 ;
+    box-sizing: border-box;
+}
+.section_container{
+    max-width: var(--max-width);
+    /* effectively centering the element. in the parent container
+    means that we tell the browser to cal the margin same on different sides
+    */
+    margin : auto ; 
+    /* if we set the root font size = 16 px so the 1 rem = 16 px
+    if we set it 32 px so the 1 rem =32 ; 
+    */
+    padding : 5rem 1rem ;
+}
+
+.section_header{
+    margin-bottom: 1 rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--header-font);
+    color : var(--text-dark)
+} 
+.section_subheader{
+    color: var(--text-light);
+ } 
+ .btn{ 
+    padding : 0.75rem 2rem ; 
+    font-size: 1rem;
+    color:var(--white);
+    background-color: var(--primary-color);
+  border-radius: 5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background-color: var(--text-dark);
+}
+
+img{
+    display: flex;
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* <html> element ensures that smooth scrolling behavior is applied to the entire document, 
+including the viewport and any scrollable elements within the documen */
+
+/* body selector in this context is often necessary for ensuring consistent behavior across different browsers.  */
+html,body{
+
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Lora', serif;
+font-family: 'Poppins', sans-serif;
+}
+
+.header{
+    background-image: linear-gradient(
+to bottom, rgba(0,0,0,0.8),
+rgba(0,0,0,0.2) ), url("assets/header.jpg");
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+
+
+}
+
+
+nav{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav_logo{
+    flex: 1;
+}
+
+.nav_logo a{
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--header-font);
+color: var(--white);
+}
+
+.nav_links{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link a{
+position: relative;
+padding: 10px 0 ;
+color: var(--white);
+transition: 0.3s;
+}
+/* n CSS, ::after is a pseudo-element that is used to insert content after the content of an element. It is often used in combination with the  */
+.link a::after{
+position: absolute;
+content: "";
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+height: 2px;
+width: 0;
+background-color: var(--white);
+transition: 0.3s;
+}
+
+.link a:hover::after{
+    width: 100%;
+}
+.nav_menu_btn {  
+    display: none;
+    font-size: 1.5rem;
+   color: var(--white);
+}
+
+.nav_actions{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+
+}
+
+.nav_actions span {
+    font-size: 1.2rem ;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.header_container{
+    text-align: center;
+    color: var(--white);
+
+}
+
+.header_container h1{
+    margin-bottom: 1rem;
+    font-size: 4.5rem;
+    font-weight: 600;
+    font-family: var(--header-font);
+}
+
+.header_container p {
+    
+}
