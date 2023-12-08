@@ -19,4 +19,3 @@ const scrollRevealOption={
         delay:1000
     });
 
- 
