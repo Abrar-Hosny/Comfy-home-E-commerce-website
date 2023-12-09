@@ -17,3 +17,11 @@ iconclicked.parentElement.parentElement.parentElement.remove()
 
     });
 }
+
+
+
+function updateCartTotal(){
+    // first get the all rows
+    // return 
+    let cartItemsContainer = document.getElementsByClassName("cart-items");
+}

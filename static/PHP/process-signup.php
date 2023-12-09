@@ -88,6 +88,7 @@ try {
     if ($stmt->execute()) {
         // here we go to another page redirect the location  and 
         // exit from the form page 
+        // + link tp html file 
 header("Location: signup-success.html")      ;
 exit ;   
     } else {

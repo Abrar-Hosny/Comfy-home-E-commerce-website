@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "testweb",
+			"path": "."
+		},
+		{
+			"name": "assets",
+			"path": "../../../Users/PC/Downloads/NovusHaus_16-09-23-main (1)/NovusHaus_16-09-23-main/assets"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "testweb"
+	}
+}

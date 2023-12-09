@@ -473,8 +473,32 @@ text-align: center;
                             font-size: 13px;
                         
                             }
-            
-        
+ #subtotal{
+    width: 50%;
+    margin-bottom: 30px;
+    border: 1px solid #e2e9e1;
+    padding: 30px;
+
+ }    
+
+ #subtotal table{
+    border-collapse:collapse ;
+    width: 100%;
+    margin-bottom: 20px;
+ }
+
+
+ #subtotal table td{
+    width: 50%;
+    border: 1px solid #e2e9e1;
+    padding: 10px;
+    font-size: 13px;
+    
+ }
+
+ #subtotal h3{
+    padding-bottom:15px ;
+ }
 
 
         

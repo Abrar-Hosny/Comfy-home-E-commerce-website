@@ -9,7 +9,7 @@
 </head>
 <body>
     <section id="cart" class="section-p1">
-    <table width="100%">
+    <table width="100%" >
         <thead>
             <tr>
                 <td>
@@ -28,8 +28,8 @@
                 <td>Subtotal</td>
             </tr>
         </thead>
-<tbody>
-    <tr>
+<tbody class="cart-items">
+    <tr class="cart-row">
         <td> <a href="#" class="btn-remove"><i class="ri-close-circle-line  icon-remove"></i></a></td>
         <td><img src="assets/modern-3.jpg"></td>
         <td>Cartoon </td>
@@ -40,7 +40,7 @@
 
 
 
-    <tr>
+    <tr class="cart-row">
         <td> <a href="#"  class=""><i class="ri-close-circle-line icon-remove"></i></a></td>
         <td><img src="assets/modern-2.jpg"></td>
         <td>Cartoon </td>
@@ -50,7 +50,7 @@
     </tr>
 
 
-    <tr>
+    <tr class="cart-row">
         <td> <a href="#"  class="btn-remove"><i class="ri-close-circle-line  icon-remove"></i></a></td>
         <td><img src="assets/modern-1.jpg"></td>
         <td>Cartoon </td>
@@ -64,6 +64,31 @@
     </table>
 
     </section>
-    <script src="cart.js"></script>
+
+
+    <section id="cart-add" class="section-p1">
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>$33</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>$33</strong></td>
+
+                </tr>
+                
+            </table>
+            <button class="normal">Proceed to checkout</button>
+
+        </div>
+    </section> 
+    <script src="static/JS/cart.js"></script>
 </body>
 </html>
