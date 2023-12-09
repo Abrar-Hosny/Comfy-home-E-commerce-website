@@ -11,6 +11,7 @@ aelements[i].addEventListener('click', function(event){
 
 // event.target is the event we click on
 let iconclicked = event.target
+// means the row
 iconclicked.parentElement.parentElement.parentElement.remove()
 
 
