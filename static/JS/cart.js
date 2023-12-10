@@ -19,7 +19,8 @@ updateCartTotal();
     });
 }
     
-
+document.addEventListener("DOMContentLoaded", function () {
+    updateCartTotal();
 var quantityInputs = document.getElementsByClassName("cart-quantity");
         for (var i = 0; i < quantityInputs.length; i++) {
             quantityInputs[i].addEventListener("input", updateCartTotal);
@@ -50,7 +51,8 @@ var quantityInputs = document.getElementsByClassName("cart-quantity");
                 // frist remove the dollar sign 
                 // then parse the price into floating point
                 let price = parseFloat(priceElement.textContent.replace("$", ""));
-                // convert the quantity as a numerical value
+                // retrieves the numeric value of the input
+
                 let quantity = quantityElement.valueAsNumber;
                 // subtotal =  multiple the price and the quantity 
                 // subtotal of only that specific item 
@@ -75,10 +77,18 @@ var quantityInputs = document.getElementsByClassName("cart-quantity");
             // You can adjust this based on where you want to display the total
             // toFixed => rounds the number 2 digit
             console.log("Total Cart Price: $" + total.toFixed(2));
+            // if we donot enter a [0] index it will retrive html collection 
+            // To access the first element in the HTMLCollection, you can use an index:
+            let changesubtotal = document.getElementsByClassName('subtotal-price')[0];
+            changesubtotal.textContent="$" + total.toFixed(2) ;
+
+let changetotal = document.getElementsByClassName('total-price')[0];
+changetotal.textContent="$" + total.toFixed(2) ;
+console.log(changetotal);           
         }
+    })
 
 
-        console.log(quantityInputs);
 
 
 
