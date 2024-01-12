@@ -1,6 +1,6 @@
 <?php
 $host="localhost";
-$dbname="login_db";
+$dbname="ecommerce_db";
 $username="root";
 $password="";
 // we usw it when we d

@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Poppins:wght@400;600;700&display=swap');
+
+/*  root pseudo-class. The :root selector represents the highest-level parent element,
+--x => variable 
+*/
+:root{
+    /* variales */
+  --primary-color:#2f2f2f;
+  --text-dark : #18181b; 
+  --text-light :#71717a ; 
+  --white:#ffffff;
+  --max-width:1200px; 
+  --header-font :"Lora" , serif ; 
+}
+*{
+    padding: 0;
+    margin: 0 ;
+    box-sizing: border-box;
+}
+.section_container{
+    max-width: var(--max-width);
+    margin : auto ; 
+    padding : 5rem 1rem ;
+}
+.section_header{
+    margin-bottom: 1 rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--header-font);
+    color : var(--text-dark)
+} 
+.section_subheader{
+    color: var(--text-light);
+ } 
+ 
+.section-p1{
+    padding: 40px 80px ;
+}
+ .btn{ 
+    padding : 0.75rem 2rem ; 
+    font-size: 1rem;
+    color:var(--white);
+    background-color: var(--primary-color);
+  border-radius: 5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn:hover{
+    background-color: var(--text-dark);
+}
+img{
+    display: flex;
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+html,body{
+
+  scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Lora', serif;
+font-family: 'Poppins', sans-serif;
+}
+
+.header{
+    background-image: linear-gradient(
+to bottom, rgba(0,0,0,0.7),
+rgba(0,0,0,0.3) ), url("../assets/banner.png");
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+nav{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav_logo{
+    flex: 1;
+}
+
+.nav_logo a{
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--header-font);
+color: var(--white);
+}
+
+.nav_links{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link a{
+position: relative;
+padding: 10px 0 ;
+color: var(--white);
+transition: 0.3s;
+}
+.link a::after{
+position: absolute;
+content: "";
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+height: 2px;
+width: 0;
+background-color: var(--white);
+transition: 0.3s;
+}
+.link a:hover::after{
+    width: 100%;
+}
+.nav_menu_btn {  
+    display: none;
+    font-size: 1.5rem;
+   color: var(--white);
+}
+.nav_actions{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+.nav_actions span {
+    font-size: 1.2rem ;
+    color: var(--white);
+    cursor: pointer;
+}
+#page-header a{
+    display: inline-block;
+    padding: 0 12px;
+    font-size: 3rem;
+    color: var(--white);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--white);
+    border-radius: 100%;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0 ;
+    margin-bottom: 70px;
+}
+#about{
+    padding: 150px 150px 0 150px;
+    display: flex;
+    align-items: center;
+}
+#about img{
+    width: 50%;
+    height: auto;
+}
+#about div{
+    padding-left: 40px;
+    width: 60%;
+}
+
+#about h2{
+    font-weight: 400px;
+    font-weight: bold;
+    font-size: 50px;
+}
+.section-m1{
+    margin: 70px 0  ;
+    margin-right: 20px;
+}
+
+#banner {
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    /* background-image: url("assets/Grey\ and\ White\ Minimalist\ Clean\ Simple\ Interior\ Designer\ Linkedin\ Banner\ \(2\).png"); */
+    background-image: url("../assets/banner2.PNG");
+    text-align: center;
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    }
+    #banner h4{
+        color: white;
+        font-size: 16px;
+    }
+    
+    #banner h2{
+        color: white;
+        font-size: 30px;
+        padding: 10px 0;
+    
+    
+    }
+    
+    #banner h2 span{
+        color:rgb(240, 55, 9) ;
+        font-size: 60px;
+    
+    }
+
+    @media(width <900px){
+        .nav_actions {
+             display: none;
+         }
+      }
+    @media(width<600){
+        nav{
+            position: fixed;
+            width: 100%;
+            padding: 1rem;
+            background-color: black;
+            z-index: 99;
+        }
+        .nav_links{
+            position: absolute;
+            left: 0;
+            top: 68px;
+            padding: 2rem;
+            width: 100%;
+            flex-direction: column;
+            transform: scaleX(0);
+            transform-origin: top;
+            transition: .5s;
+            background-color: (0,0,0,0.9);
+        }
+        .nav_links .link a{
+            opacity: 0;
+        }
+        .nav_links.open .link a{
+            opacity: 1;
+        }
+        .nav_links.open{
+            transform: scaleY(1);
+        } 
+        .nav_menu_btn{
+            display: block;
+        }
+        .header_container h1{
+            margin-top: 4rem;
+            font-size: 3.5rem;
+        }
+     }
+    
+     @media (max-width:477px) {
+        #about{
+            padding: 100px 30px 0 80px;
+        }
+        #about .blog-img{
+            width: 100%;
+            margin-right: 0px;
+            margin-bottom: 30px;
+        }
+      
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ @media(width <900px){
+   .nav_actions {
+        display: none;
+    }
+
+    .choose_container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .choose_container .choose_bg {
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .choose_image{
+        grid-area: 1/1/2/2;
+    }
+ }
+
+ @media(width<600){
+    nav{
+        position: fixed;
+        width: 100%;
+        padding: 1rem;
+        background-color: black;
+        z-index: 99;
+    }
+    .nav_links .link a{
+        opacity: 0;
+    }
+    .nav_links.open .link a{
+        opacity: 1;
+    }
+    .nav_links.open{
+        transform: scaleY(1);
+    } 
+    .nav_menu_btn{
+        display: block;
+    }
+    .header_container h1{
+        margin-top: 4rem;
+        font-size: 3.5rem;
+    }
+ }
+/* about PAGE*/
+.header #page-header .blog-header{
+    background-image: linear-gradient(
+        to bottom, rgba(0,0,0,0.7),
+        rgba(0,0,0,0.3) ), url("../assets/banner.png");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+}
+#page-header{
+    text-align: center;
+    color: var(--white);
+}
+.header #page-header h2{
+    margin-bottom: 1rem;
+    font-size: 4.5rem;
+    font-weight: 600;
+    font-family: var(--header-font);
+}
+.header #page-header p{
+    max-width: 600px;
+    margin-inline:auto ;
+    margin-bottom: 4rem ;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:477px) {
+    #blog .blog-box{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #blog{
+        padding: 100px 30px 0 80px;
+    }
+    #blog .blog-img{
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 30px;
+    }
+    #blog .blog-details{
+        width: 100%;
+    }
+}

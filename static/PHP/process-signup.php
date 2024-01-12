@@ -68,14 +68,15 @@ $mysqli=require __DIR__  . "/database.php";
 
 $sql = "INSERT INTO user (name, email ,password_hash) VALUES(?, ? ,?)";
 
-$stmt = $mysqli ->stmt_init();
 
+$stmt = $mysqli ->stmt_init();
+// no error
 if(! $stmt -> prepare($sql)){
     die("SQL error : " . $mysqli->error); 
 }
-
+// set kind of colums
 $stmt -> bind_param("sss" , 
-$_POST["name"] , $_POST["email"] , $password_hash);
+$_POST["name"] , $_POST["email"] , $password);
 
 
 // validation upon dublicates email
@@ -89,7 +90,7 @@ try {
         // here we go to another page redirect the location  and 
         // exit from the form page 
         // + link tp html file 
-header("Location: signup-success.html")      ;
+header("Location: /testweb/shop.php ")      ;
 exit ;   
     } else {
         throw new Exception("Error executing the statement");

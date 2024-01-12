@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+// data i want to store it to used it in another page
+
+// Check if the 'cart' key exists in the session
+if (!isset($_SESSION['username'])) {
+    $_SESSION['username'] = ""; // Initialize the user
+}
+// $is_invalid =false ;
 // when click and the form is sumitted the method will be return
 // here to check that we sumit the form
 if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -26,17 +35,22 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         
         // here we will verify the paasword that the user entered in the form
         // with the ones that in the table  password hash
-
+//lw haga reg3t mn el database
         if(password_verify($_POST["password"],$user["password_hash"])){
-            die("login success");
+            $_SESSION["email"] =  $user["email"];
+            $_SESSION["pass"] = $user["password"];
+            header("Location:  /testweb/shop.php ")      ;
         }
         else{
-            die("login bad");
+            header("Location:  /testweb/shop.php ")      ;
+
 
 
         }
 
     }
+
+    // $is_invalid =true;
 
 
 }
@@ -70,42 +84,52 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 </head>
 
 <body class="bg-gray-100 h-screen flex items-center justify-center">
-    
+   
 
 <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
    
 <!-- instead of submit the form into separate script like sign up 
 here we willnot need to add action here
 -->
+
+
 <form class="space-y-6" method="POST" novalidate>
         <h5 class="text-xl font-medium text-gray-900 dark:text-white">login to our platform</h5>
        
         <div>
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" >
+            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" 
+            value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
         </div>
         <div>
             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
             <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
         </div>
         
-        <div class="flex items-start">
-            <div class="flex items-start">
-                <div class="flex items-center h-5">
-                    <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
-                </div>
-                <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
-            </div>
-            <a href="#" class="ms-auto text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
-        </div>
-        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
+       
+     <a href="/index.html">   <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" name="login">Login to your account</button></a>
         <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-            Not registered? <a href="signup.php" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
-     <!-- here link  -->
+            Not registered? <a href="/testweb/signup.html" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+            an admin? <a href="/testweb/static/PHP/adminloginin.php" class="text-blue-700 hover:underline dark:text-blue-500">login</a>
+
+            <!-- here link  -->
      
         </div>
     </form>
 </div>
 
+
+
+<!-- <?php
+// if(isset($_POST['login'])){
+//     $username=$_POST['name'];
+//     $pass=$_POST['pass'];
+
+//     $select=mysqli_query($mysqli,"select ")
+
+
+// }
+
+?> -->
 </body>
 </html>
