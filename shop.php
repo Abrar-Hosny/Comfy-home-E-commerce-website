@@ -25,33 +25,32 @@ $all_product = $mysqli->query($sql);
 
 </head>
 <body>
-<section id="header">
+<!-- <section id="header">
   <li class="logo"><a href="/index.php">ComfyHome</a></li>
 
     <div >
         
 
     <ul  id="navbar">
-      <li ><a class="active" href="index.html">Home</a></li>
-      <li ><a href="index.html">About</a></li>
-      <li ><a href="/testweb/shop.php">Shop</a></li>
-      <li ><a href="blog.html">Blog</a></li>
-      <li ><a href="contact.html">Contact us </a></li>
+      <li ><a  href="index.html">Home</a></li>
+      <li ><a href="/testweb/index.html">About</a></li>
+      <li ><a class="active" href="/testweb/shop.php">Shop</a></li>
       <li ><a href="/testweb/static/PHP/viewCart.php"><i class="ri-shopping-bag-line"></i></a></li>
-      <li ><a href="/testweb/static/PHP/userprofile.php">    <i class="ri-user-line"></i>
-</a></li>
+      <li > <a href="/testweb/static/PHP/userprofile.php">    <i class="ri-user-line"></i>
+
+      <li >
+    
 
     </ul>
 
   
     </div>
-  </section>
-
+  </section> -->
 
  <!-- the header with pic -->
 <section id="banner" class="section-p1">
  
-    <h2 class="fsec">STAYHOME</h2>
+    <h2 class="fsec  ">STAYHOME</h2>
     <p class="psec " >Save more with coupons & up to 70% off!</p>
 </section>
 <!-- section with products -->
@@ -81,15 +80,12 @@ $all_product = $mysqli->query($sql);
           <i class="fas fa-star"></i>
         
         </div>
-        <h4>$<?php echo $row["price"] ;?></h4>
+      <h4>$<?php echo $row["price"] ;?></h4>
       <input type="hidden" name="pname" value='<?php echo $row["product_name"] ;?>'>
       <input type="hidden" name="pprice" value='<?php echo $row["price"] ;?>'>    
       <input type="hidden" name="pcat" value='<?php echo $row["product_cat"] ;?>'>     
- 
       <input type="number" name="pquantity" min="1" max="10" placeholder="Quantity">     
       <input type="Submit" name="addCart" class="btn">     
-     
-      
       </div>
        
        

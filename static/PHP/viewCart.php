@@ -110,22 +110,20 @@ body{
 </head>
 <body>
 <section id="header">
-  <li class="logo"><a href="/index.html">ComfyHome</a></li>
+  <li class="logo"><a href="/index.php">ComfyHome</a></li>
 
     <div >
         
 
     <ul  id="navbar">
-      <li ><a class="active" href="/testweb/index.html">Home</a></li>
+      <li ><a  href="index.html">Home</a></li>
       <li ><a href="/testweb/index.html">About</a></li>
-      <li ><a href="/testweb/shop.php">Shop</a></li>
-      <li ><a href="blog.php">Blog</a></li>
-      <li ><a href="#home">Contact us </a></li>
-      <li ><a href="/testweb/static/PHP/viewCart.php"><i class="ri-shopping-bag-line"></i></a></li>
+      <li ><a  href="/testweb/shop.php">Shop</a></li>
+      <li ><a class="active" href="/testweb/static/PHP/viewCart.php"><i class="ri-shopping-bag-line"></i></a></li>
       <li > <a href="/testweb/static/PHP/userprofile.php">    <i class="ri-user-line"></i>
 
-
-</a></li>
+      <li >
+    
 
     </ul>
 
@@ -195,14 +193,17 @@ body{
         </table>
 
         <div class="mt-4 flex justify-center items-center ">
-            <h3 class="text-gray-700 dark:text-gray-300 text-lg font-medium">Total Price : </h3>
-            <h3 class="text-2xl font-bold text-blue-600 dark:text-blue-400"><?php echo number_format($total, 2)?></h3>
+            <h3 class="text-black text-2xl font-bold dark:text-gray-300 text-lg font-medium">Total Price : </h3>
+            <h3 class="text-xl font-bold pl-2 dark:text-red-300"><?php echo number_format($total, 2)?></h3>
         </div>
 
         <!-- Add this button at the end of your body section -->
         <form action="insertCart.php" method="post">
-    <button id="sendToDatabaseBtn" name="sendToDatabase" class="bg-blue-500 text-white px-4 py-2 rounded">Send to Database</button>
-</form>
+<div class="flex justify-center">
+<button id="sendToDatabaseBtn" name="sendToDatabase" class="bg-red-300 text-black font-bold flex px-2 mt-8 mb-8 py-2 rounded">Send to Database</button>
+
+</div>
+    </form>
     </div>
 
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>

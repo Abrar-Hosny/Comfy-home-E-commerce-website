@@ -2,7 +2,15 @@
 
 // validate the name
 
+session_start();
 
+// data i want to store it to used it in another page
+
+// Check if the 'cart' key exists in the session
+if (!isset($_SESSION['username'])) {
+    $_SESSION['username'] = ""; // Initialize the user
+}
+// $
 if(empty($_POST["name"])){
 die("name is required");
 
@@ -16,6 +24,9 @@ $email = $_POST['email']; // Make sure this is correct
 // Check if email is not null before proceeding
 if ($_POST["email"] == null) {
     echo "Email cannot be null";}  
+
+$_SESSION["email"] = $email;
+
    
 
 

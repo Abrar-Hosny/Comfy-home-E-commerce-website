@@ -65,15 +65,115 @@ if (isset($_POST['submit'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-<body class="flex justify-center items-center h-screen ">
+<body >
+
+
+<style>
+body{
+    width: 100%;
+}
+.logo {
+    text-decoration: none;
+    list-style: none;
     
-    <div class="max-w-xl p-12 ml-16 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">User Info </h5>
-        </a>
+}
+
+*{
+    padding: 0;
+    margin: 0 ;
+    box-sizing: border-box;
+}
+
+.logo a{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    font-weight: 20px;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: #f8f6f6;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 16px;
+    color :gray;
+    transition: 0.3s ease;
+}
+
+
+
+#navbar li a:hover ,#navbar li a.active{
+    color:black;
+}
+
+
+#navbar li a:hover::after,
+#navbar li a.active::after{
+   content: "";
+   width: 30%;
+   height: 2px;
+   background-color: rgb(12, 11, 11);
+   position: absolute;
+   bottom: -4px;
+   left: 20px;
+
+}
+    </style>
+</head>
+<body>
+<section id="header">
+  <li class="logo"><a href="/index.php">ComfyHome</a></li>
+
+    <div >
+        
+
+    <ul  id="navbar">
+      <li ><a  href="index.html">Home</a></li>
+      <li ><a href="/testweb/index.html">About</a></li>
+      <li ><a  href="/testweb/shop.php">Shop</a></li>
+      <li ><a  href="/testweb/static/PHP/viewCart.php"><i class="ri-shopping-bag-line"></i></a></li>
+      <li ><a class="active" href="/testweb/static/PHP/userprofile.php"><i class="ri-user-line"></i>
+
+      <li >
+    
+
+    </ul>
+
+  
+    </div>
+  </section>
+   
+<div class="flex justify-center items-center h-screen" >
+    
+<div class="max-w-xl p-12 ml-16  border bg-gray-100 border-gray-700 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-red-600 dark:text-white text-center">User Email  </h5>
+        </a>       
         <?php if (isset($_SESSION['username'])) : ?>
-            <a href="#">
-                <i class="ri-mail-line"><?php echo $_SESSION['email']; ?></i> 
+            <a href="#" class="p-6 font-bold text-gray-800">
+                <i class="ri-mail-line "><span >   <?php echo $_SESSION['email']; ?> </span></i> 
             </a>
         <?php else : ?>
             <p>Username not set</p>
@@ -84,25 +184,25 @@ if (isset($_POST['submit'])) {
         <br>
       
 
-        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Cart Items</h5>
+        <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-red-600 dark:text-white">Cart Items</h5>
         <?php if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) : ?>
             <ul>
                 <?php foreach ($_SESSION['cart'] as $item) : ?>
-                    <li><?php echo $item['ProductName'] . ' - Quantity: ' . $item['ProductQuantity']; ?></li>
+                    <li class="font-bold text-gray-700"><?php echo $item['ProductName'] . ' - Quantity: ' . $item['ProductQuantity']; ?></li>
                 <?php endforeach; ?>
             </ul>
         <?php else : ?>
             <p>No items in the cart.</p>
         <?php endif; ?>
 
-        <a href="/testweb/index.html" class="inline-flex mt-4 items-center px-6 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <a href="/testweb/index.html" class="flex justify-center mt-6 items-center px-6 py-2 text-sm font-medium text-center text-black bg-red-300 rounded-lg hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Explore 
             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
             </svg>
         </a>
     </div>
-    <section id="update-password-form" class=" w-full flex flex-col grow items-center justify-center px-16 py-16">
+    <!-- <section id="update-password-form" class=" w-full flex flex-col grow items-center justify-center px-16 py-16">
         <div class="w-full  bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <div class="flex space-x-4 items-center">
@@ -130,7 +230,8 @@ if (isset($_POST['submit'])) {
                 </form>
             </div>
         </div>
-    </section> 
+    </section>  -->
+</div>
 </body>
 </html>
 
